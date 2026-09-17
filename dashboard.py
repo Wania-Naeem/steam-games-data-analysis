@@ -67,7 +67,11 @@ with c1:
         title="Top 10 Genres by Game Count", color=genre_counts.values,
         color_continuous_scale='viridis'
     )
-    fig.update_layout(showlegend=False, coloraxis_showscale=False)
+    fig.update_layout(
+        showlegend=False,
+        coloraxis_showscale=False,
+        yaxis={"categoryorder": "array", "categoryarray": genre_counts.index[::-1]},
+    )
     st.plotly_chart(fig, use_container_width=True)
 
 with c2:
